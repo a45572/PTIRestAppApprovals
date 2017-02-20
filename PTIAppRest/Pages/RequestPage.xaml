@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				x:Class="PTIAppRest.RequestPage"
+				Title="Bandeja de Entrada"
+				NavigationPage.HasBackButton="False">
+	<ContentPage.Content>
+
+		<StackLayout>
+          <Grid Padding="12" BackgroundColor="Navy" >
+          	<Label  x:Name="RequestTitle" Text="Solicitudes Pendientes" TextColor="White" FontSize="16"/>
+          </Grid>      
+		 <ListView  x:Name="requestList"
+                    HasUnevenRows="true" 
+                    Footer=""
+                    SeparatorColor            ="Navy"                        
+                    BackgroundColor           ="White"
+                    IsPullToRefreshEnabled    ="true" 	ItemTapped="requestList_ItemTapped"				
+					 Refreshing="requestListView_Refreshing">               
+            
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                    <ViewCell>
+                       <ViewCell.ContextActions>
+                            <MenuItem	Clicked="aprobarWF" 
+										Text="Aprobar" CommandParameter="{Binding .}" />                                       
+                             <MenuItem	Clicked="rechazarWF"
+										Text="Rechazar" 
+										IsDestructive="True"/>  										                        
+                        </ViewCell.ContextActions> 
+						 <StackLayout Padding="15,0" BackgroundColor="White" Orientation="Horizontal"> 
+							<Image Source="requestMenu.png" /> 	
+	                         <StackLayout Padding="15,0" BackgroundColor="White" >
+								
+		                            <Label	Text="{Binding company}"                                  
+		                                 	TextColor="Black" Font="Bold"  FontSize="12"                                                            />    
+		                            <Label 	Text="{Binding purchReqId}"                                  
+		                                   	TextColor="Navy" FontSize="12"/>    
+									<Label 	Text="{Binding BusinessJustification}"                                  
+		                                   	TextColor="Black" FontSize="12"/>    
+	                        </StackLayout>    
+						</StackLayout>   	
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>    
+
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                        <Grid Padding="12" BackgroundColor="White" >
+                            <Label Text="" TextColor="White" FontSize="12"/>
+                        </Grid>                
+                </DataTemplate>
+            </ListView.FooterTemplate>            
+        </ListView>  
+			<Grid Padding="12" BackgroundColor="Navy" >
+          	<Label  x:Name="RequestInfo" TextColor="White" FontSize="11"/>
+          </Grid>  
+        </StackLayout>
+			
+	</ContentPage.Content>
+</ContentPage>

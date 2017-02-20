@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PTIAppRest.RequestDetailPage" Title="Detalle Solicitud">
+	<ContentPage.Content>
+		    <ScrollView>
+
+		 <StackLayout  Padding="10,0,10,10">			
+		 <Grid BackgroundColor="Navy" >
+		  <Label FontSize="16" HorizontalOptions="Center">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text=""  ForegroundColor="White" FontAttributes="Bold" />
+            <Span  x:Name="companiaLabel" ForegroundColor="White" FontAttributes="Bold"/>       
+          </FormattedString>
+        </Label.FormattedText>
+        </Label>
+		 </Grid>					
+				
+	 <Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Departamento:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11" />
+            <Span  x:Name="departamentoLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>
+
+		<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Monto Colones:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11" />
+            <Span  x:Name="ColonesLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+		<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Monto Dólares:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="dolaresLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+		<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Monto Euros:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="eurosLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+		<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Justificación Comercial:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="justificacionLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+			<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Estado:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="estadoLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+			<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Solicitante:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="solicitanteLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+			<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Comprador:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="compradorLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+			<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Visto Bueno:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11" />
+            <Span  x:Name="vistoBuenoLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>	
+
+     	<Label FontSize="11">
+        <Label.FormattedText>
+          <FormattedString>
+            <Span Text="Comentarios:"  ForegroundColor="Black" FontAttributes="Bold" FontSize="11"/>
+            <Span  x:Name="ComentariosLabel" />       
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>				
+				<StackLayout  BackgroundColor="White" Orientation="Horizontal">  
+					<Button	x:Name="approvalButton" Clicked="aprobar_Clicked"
+							Text=" Aprobar "
+							BackgroundColor="Green"
+							TextColor="White"/>
+					<Button	x:Name="rechazarButton" Clicked="rechazar_Clicked"
+							Text=" Rechazar "
+							BackgroundColor="Maroon"
+							TextColor="White"/>
+					<Button	x:Name="delegarButton" Clicked="delegar_Clicked"
+							Text=" Delegar "
+							BackgroundColor="Navy"
+							TextColor="White"/>
+				</StackLayout>
+	<ActivityIndicator	x:Name="waitActivityIndicator"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"/>			
+     <Label FontSize="11" HorizontalOptions="Center">					
+        <Label.FormattedText>
+          <FormattedString>
+			<Span />			
+            <Span Text="Artículos de la Solicitud de Compra"  ForegroundColor="Navy" FontAttributes="Bold" FontSize="14"   />
+          </FormattedString>
+        </Label.FormattedText>
+     </Label>				
+      					<StackLayout  BackgroundColor="White" Orientation="Horizontal">  
+       						<Label    Text="Cant."       
+                                     TextColor="Black"   FontSize="10" XAlign="Start" />  
+								
+                            <Label    Text="                    Artículo                                            "                                  
+                                      TextColor="Black" FontSize="10" XAlign="Center" />  
+								
+							<Label    Text="Precio"                                  
+                                      TextColor="Black" FontSize="10" XAlign="End" />   
+						</StackLayout>			
+				
+			<ListView x:Name="listViewProducts" Footer="" HasUnevenRows="true" ItemTapped="ListViewProducts_ItemTapped" SeparatorColor="Navy">
+				  <ListView.ItemTemplate>
+                    <DataTemplate>
+                    <ViewCell>				          
+                         <StackLayout  BackgroundColor="White" Orientation="Horizontal">  						
+                           <Label    Text="{Binding PURCHQTY,StringFormat='{0:N}'}"       
+                                     TextColor="Black"   FontSize="10" XAlign="Start"/>  
+								
+                            <Label    Text="{Binding NAME}"                                  
+                                      TextColor="Black" FontSize="10" XAlign="Center" />  
+								
+							<Label    Text="{Binding PURCHPRICE,StringFormat='{0:N}'}"                                  
+                                      TextColor="Black" FontSize="10" XAlign="End" />    
+                        </StackLayout>    
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>    
+			</ListView>				
+    </StackLayout>
+	</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

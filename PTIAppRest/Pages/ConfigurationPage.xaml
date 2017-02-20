@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				x:Class="PTIAppRest.ConfigurationPage"
+				Title="Administración">
+	<ContentPage.Content>
+		<StackLayout Padding="10,10,10,10" Spacing="10">			
+			<Label 	Text="Configuración de Conexión"				
+					HorizontalOptions="Center"
+					VerticalOptions="Center"
+					FontAttributes="Bold"/>
+			<Label Text="Servidor IP Web Services:"				
+					HorizontalOptions="Start"
+					VerticalOptions="Center"/>
+			<Entry  x:Name="serverWsEntry"
+					Placeholder="Ingrese Servidor Web Services"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Center"/>
+			<Label Text="Puerto:"				
+					HorizontalOptions="Start"
+					VerticalOptions="Center"/>
+			<Entry  x:Name="portEntry"
+					Placeholder="Ingrese Puerto"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Center"/>
+			<Label Text="Servidor IP AX:"				
+					HorizontalOptions="Start"
+					VerticalOptions="Center"/>
+			<Entry  x:Name="axEntry"
+					Placeholder="Ingrese Servidor AX"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Center"/>
+			<Label Text="Instancia Ax:"				
+					HorizontalOptions="Start"
+					VerticalOptions="Center"/>
+			<Entry  x:Name="instanciaEntry"
+					Placeholder="Ingrese Instancia"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Center"/>
+			<ActivityIndicator x:Name="waitActivityIndicator"
+					HorizontalOptions="Center"
+					VerticalOptions="Center"/>
+			<Button x:Name="enterButton"
+					Text="Guardar Configuración"
+					BackgroundColor="Navy"
+					TextColor="White"
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="Center"/>		
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
