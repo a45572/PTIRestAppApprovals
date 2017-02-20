@@ -8,7 +8,7 @@ namespace PTIAppRest
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new ConfigurationPage());
+			MainPage = new NavigationPage(new Login());
 		}
 
 		protected override void OnStart()

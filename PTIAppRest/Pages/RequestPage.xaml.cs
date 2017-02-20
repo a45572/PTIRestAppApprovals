@@ -32,7 +32,7 @@ namespace PTIAppRest
 				var response = await client.GetAsync(url);
 				result = response.Content.ReadAsStringAsync().Result;
 				purchOrdersList = JsonConvert.DeserializeObject <List<PurchOrders>> (result);
-				RequestTitle.Text ="Solicitudes Pendientes ("+purchOrdersList.Count.ToString()+")";
+				this.Title ="Solicitudes Pendientes ("+purchOrdersList.Count.ToString()+")";
 				RequestInfo.Text = "User: "+userlogin.name;
 				requestList.ItemsSource = purchOrdersList;
 			}

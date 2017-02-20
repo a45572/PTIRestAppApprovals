@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="PTIAppRest.DelegatePage" Title="Delegación" >
+<ContentPage 	xmlns="http://xamarin.com/schemas/2014/forms" 
+				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				x:Class="PTIAppRest.DelegatePage" Title="Delegación" >
 	<ContentPage.Content>
 		<StackLayout Padding="10,0,10,10">
-			 <Grid BackgroundColor="Navy" >
+			 
 		  <Label FontSize="16" HorizontalOptions="Center">
         <Label.FormattedText>
           <FormattedString>
@@ -11,7 +13,7 @@
           </FormattedString>
         </Label.FormattedText>
         </Label>
-		 </Grid>	
+		 	
 			<Label x:Name="confirmacionLabel"/>
 			<StackLayout Orientation="Horizontal">
 				<Label Text="Delegar a:"/>
@@ -24,10 +26,7 @@
 						HorizontalOptions="FillAndExpand"
 						VerticalOptions="Center"
 						Clicked="delegar_Clicked"/>	
-			<ActivityIndicator	
-						x:Name="waitActivityIndicator"
-						HorizontalOptions="Center"
-						verticalOptions="Center"/>			
+					
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -16,7 +16,7 @@ namespace PTIAppRest
 			InitializeComponent();
 			loadRest();
 			this.userActual = userActual;
-			confirmacionLabel.Text = "Seguro que desea delegar la Solicitud: " + purchOrderSelected.purchReqId;
+			confirmacionLabel.Text = "Seguro que desea delegar la Solicitud: " + purchOrderSelected.purchReqId + " ?";
 		}
 
 		public async void loadRest()
@@ -63,7 +63,7 @@ namespace PTIAppRest
 			string result = String.Empty;
 			try
 			{
-				waitActivityIndicator.IsRunning = true;
+				//waitActivityIndicator.IsRunning = true;
 				HttpClient client = new HttpClient();
 				//client.BaseAddress = new Uri("http://200.91.71.219:84");
 				client.BaseAddress = new Uri("http://192.168.100.106:84");
@@ -71,19 +71,19 @@ namespace PTIAppRest
 				string url = string.Format("/PTIRestApprovalsOrders/API/PurchOrders/moveWorkFlowAX/{0}/{1}/{2}/{3}/{4}/{5}/{6}", order.purchReqId, order.user, userDelegate, approvalsEject, order.workItemID, order.area, order.comments);
 				var response = await client.GetAsync(url);
 				result = response.Content.ReadAsStringAsync().Result;
-				waitActivityIndicator.IsRunning = false;
+				//waitActivityIndicator.IsRunning = false;
 
 			}
 			catch (Exception err)
 			{
 				await DisplayAlert("Error", "No hay conexión, intente más tarde." + err.Message, "Aceptar");
-				waitActivityIndicator.IsRunning = false;
+				//waitActivityIndicator.IsRunning = false;
 			}
 
 			if (string.IsNullOrEmpty(result) || result == "null")
 			{
 				await DisplayAlert("", "Usuario sin solicitudes", "Aceptar");
-				waitActivityIndicator.IsRunning = false;
+				//waitActivityIndicator.IsRunning = false;
 				return;
 			}
 		}

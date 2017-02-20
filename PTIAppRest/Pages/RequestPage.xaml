@@ -3,13 +3,11 @@
 				xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 				x:Class="PTIAppRest.RequestPage"
 				Title="Bandeja de Entrada"
-				NavigationPage.HasBackButton="False">
+				NavigationPage.HasBackButton="False" >
 	<ContentPage.Content>
 
 		<StackLayout>
-          <Grid Padding="12" BackgroundColor="Navy" >
-          	<Label  x:Name="RequestTitle" Text="Solicitudes Pendientes" TextColor="White" FontSize="16"/>
-          </Grid>      
+               
 		 <ListView  x:Name="requestList"
                     HasUnevenRows="true" 
                     Footer=""
