@@ -55,6 +55,7 @@ namespace PTIAppRest
 					waitActivityIndicator.IsRunning = false;
 					return;
 				}
+
 				await Navigation.PushAsync(new RequestPage(user));
 			}
 			catch (Exception err) { 
